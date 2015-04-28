@@ -1,7 +1,14 @@
 class Tama
-  define_method(:initialize) do |name, tequila_level|
+  define_method(:initialize) do |name, tequila_level, sleep_level, burrito_level, bike_level|
+
+@@status = [10, 10, 10, 10]
+
     @name = name
     @tequila_level = tequila_level
+    @sleep_level = sleep_level
+    @burrito_level = burrito_level
+    @bike_level = bike_level
+
   end
 
   define_method(:name) do
@@ -11,4 +18,33 @@ class Tama
   define_method(:tequila_level) do
     @tequila_level
   end
-end
+
+  define_method(:sleep_level) do
+    @sleep_level
+  end
+
+  define_method(:burrito_level) do
+    @burrito_level
+  end
+
+  define_method(:bike_level) do
+     @bike_level
+  end
+
+  define_method(:time_passes) do
+    until (@tequila_level == 0 || @burrito_level == 0 || @bike_level == 0 || @sleep_level == 0) do
+      @tequila_level = @tequila_level.-1
+      @burrito_level = @burrito_level.-1
+      @bike_level = @bike_level.-1
+      @sleep_level = @sleep_level.-1
+      sleep(1)
+    end
+  end
+
+  define_singleton_method(:clear) do
+    @@status = []
+  end
+
+  define_singleton_method(:status_report) do
+    @@status 
+  end
