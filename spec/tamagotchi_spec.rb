@@ -26,7 +26,7 @@ describe(Tama) do
 
   describe('#time_passes') do
     it("decreases the amount of tequila that Tama has left by 1 each second") do
-      my_pet = Tama.new("Crazy Pete", 10, 10, 10, 10)
+      my_pet = Tama.new("Crazy Pete", 1, 1, 1, 1)
       my_pet.time_passes()
       expect(my_pet.tequila_level()).to(eq(0))
     end
@@ -34,8 +34,7 @@ describe(Tama) do
 
   describe('#save_status') do
     it('saves current status of all necessary life levels') do
-    my_pet = Tama.new("Crazy Pete", 10, 10, 10, 10)
-    my_pet.time_passes()
+    my_pet = Tama.new("Crazy Pete", 8, 1, 7, 1)
     expect(my_pet.save_status()).to(eq([my_pet.tequila_level, my_pet.sleep_level, my_pet.burrito_level, my_pet.bike_level]))
   end
 end

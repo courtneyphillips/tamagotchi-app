@@ -1,8 +1,7 @@
 class Tama
+  @@status = []
+
   define_method(:initialize) do |name, tequila_level, sleep_level, burrito_level, bike_level|
-
-@@status = []
-
     @name = name
     @tequila_level = tequila_level
     @sleep_level = sleep_level
@@ -33,11 +32,11 @@ class Tama
 
   define_method(:time_passes) do
     until (@tequila_level == 0 || @burrito_level == 0 || @bike_level == 0 || @sleep_level == 0) do
-      @tequila_level = @tequila_level.-4
-      @burrito_level = @burrito_level.-2
-      @bike_level = @bike_level.-3
+      @tequila_level = @tequila_level.-1
+      @burrito_level = @burrito_level.-1
+      @bike_level = @bike_level.-1
       @sleep_level = @sleep_level.-1
-      sleep(30)
+      sleep(10)
     end
   end
 
