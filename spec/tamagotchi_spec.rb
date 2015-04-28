@@ -4,7 +4,7 @@ require('pry')
 
 describe(Tama) do
    before() do
-     Tama.clear()
+     Tama.reset()
    end
 
   describe('#initialize') do
@@ -20,7 +20,7 @@ describe(Tama) do
 
   describe('.status_report') do
     it("is full of tens") do
-      expect(Tama.status_report()).to(eq([10,10,10,10]))
+      expect(Tama.status_report()).to(eq([10, 10, 10, 10]))
     end
   end
 
@@ -32,11 +32,45 @@ describe(Tama) do
     end
   end
 
-  describe('.save_status') do
+  describe('#save_status') do
     it('saves current status of all necessary life levels') do
     my_pet = Tama.new("Crazy Pete", 10, 10, 10, 10)
-    my_pet.save_status()
-    expect(my_pet.status()).to(eq([10, 10, 10, 10]))
+    my_pet.time_passes()
+    expect(my_pet.save_status()).to(eq([my_pet.tequila_level, my_pet.sleep_level, my_pet.burrito_level, my_pet.bike_level]))
   end
 end
+
+  describe('#feed') do
+    it('resets only the burrito_level to 10') do
+      my_pet = Tama.new("Pancake", 10, 10, 10, 10)
+      my_pet.feed()
+      expect(my_pet.burrito_level()).to(eq(10))
+    end
+  end
+
+  describe('#bike_ride') do
+    it('resets only the bike_leve to 10') do
+      my_pet = Tama.new("That guy", 1, 8, 7, 2)
+      my_pet.bike_ride()
+      expect(my_pet.bike_level()).to(eq(10))
+    end
+  end
+
+  describe('#margarita') do
+    it('resets only the tequila_leve to 10') do
+      my_pet = Tama.new("That guy", 1, 8, 7, 2)
+      my_pet.margarita()
+      expect(my_pet.tequila_level()).to(eq(10))
+    end
+  end
+
+  describe('#nap') do
+    it('resets only the sleep_leve to 10') do
+      my_pet = Tama.new("That guy", 1, 8, 7, 2)
+      my_pet.nap()
+      expect(my_pet.sleep_level()).to(eq(10))
+    end
+  end
+
+
 end
