@@ -72,5 +72,12 @@ end
     end
   end
 
+  describe('#is_alive') do
+    it("is alive if all life levels are not zero") do
+      my_pet = Tama.new("That guy", 0, 8, 7, 2)
+      expect(my_pet.is_alive()).to(eq(false))
+    end
+  end
+
 
 end

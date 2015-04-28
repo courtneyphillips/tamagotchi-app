@@ -33,11 +33,11 @@ class Tama
 
   define_method(:time_passes) do
     until (@tequila_level == 0 || @burrito_level == 0 || @bike_level == 0 || @sleep_level == 0) do
-      @tequila_level = @tequila_level.-1
-      @burrito_level = @burrito_level.-1
-      @bike_level = @bike_level.-1
+      @tequila_level = @tequila_level.-4
+      @burrito_level = @burrito_level.-2
+      @bike_level = @bike_level.-3
       @sleep_level = @sleep_level.-1
-      #sleep(1)
+      sleep(30)
     end
   end
 
@@ -71,5 +71,10 @@ class Tama
   define_method(:margarita) do
     @tequila_level = 10
   end
+
+  define_method(:is_alive) do
+    @tequila_level != 0 && @burrito_level != 0 && @bike_level != 0 && @sleep_level != 0
+  end
+
 
 end
