@@ -1,33 +1,14 @@
 class Tama
-  @@status = []
+attr_reader(:tequila_level, :sleep_level, :burrito_level, :bike_level, :name)
 
-  define_method(:initialize) do |name, tequila_level, sleep_level, burrito_level, bike_level|
+@@status = []
+
+  define_method(:initialize) do |attributes|
     @name = name
     @tequila_level = tequila_level
     @sleep_level = sleep_level
     @burrito_level = burrito_level
     @bike_level = bike_level
-
-  end
-
-  define_method(:name) do
-    @name
-  end
-
-  define_method(:tequila_level) do
-    @tequila_level
-  end
-
-  define_method(:sleep_level) do
-    @sleep_level
-  end
-
-  define_method(:burrito_level) do
-    @burrito_level
-  end
-
-  define_method(:bike_level) do
-     @bike_level
   end
 
   define_method(:time_passes) do
